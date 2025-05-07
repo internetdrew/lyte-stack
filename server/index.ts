@@ -17,6 +17,8 @@ export const appRouter = router({
     }),
 });
 
+console.log("hello");
+
 const app = express();
 
 app.use(
