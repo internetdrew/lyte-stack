@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 function App() {
   const { data, isLoading } = useQuery(
-    trpc.greeting.queryOptions({ name: "InternetDrew" }),
+    trpc.greeting.queryOptions({ intro: "Welcome to" }),
   );
 
   return (

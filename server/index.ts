@@ -12,10 +12,10 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 export const appRouter = router({
   greeting: publicProcedure
-    .input(z.object({ name: z.string() }))
+    .input(z.object({ intro: z.string() }))
     .query((opts) => {
       const { input } = opts;
-      return `Welcome back, ${input.name}` as const;
+      return `${input.intro} LyteStack` as const;
     }),
 });
 

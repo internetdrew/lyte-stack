@@ -3,7 +3,13 @@
 ## Table of Contents
 
 - [What's Here?](#whats-here)
--
+- [Get Started](#get-started)
+- [Development](#development)
+- [Deployment](#deployment)
+- [Usage and Structure](#usage-and-structure)
+  - [Notes on Deployment](#notes-on-deployment)
+  - [Notes on Development Server](#notes-on-development-server)
+  - [Notes on Middleware](#notes-on-middleware)
 
 <br />
 <br />
@@ -135,3 +141,14 @@ The development environment uses Vite's dev server with a proxy configuration to
    - Forwards all `/trpc/*` requests to the Express server
    - Enables seamless API calls during development (nodemon watches server files)
    - Maintains type safety through tRPC
+
+### Notes on Middleware
+
+The Express server uses the following middleware in this order:
+
+1. [**compression**](https://expressjs.com/en/resources/middleware/compression.html): Compresses HTTP responses to reduce bandwidth and improve load times
+2. [**helmet**](https://helmetjs.github.io/): Sets security headers to protect against common web vulnerabilities
+3. [**cors**](https://expressjs.com/en/resources/middleware/cors.html): Handles cross-origin requests with credentials enabled
+4. [**express.json**](https://expressjs.com/en/api.html#express.json): Parses incoming JSON request bodies
+
+I choose these as general best-practices for providing security, performance, and proper request handling. I encourage you to [take a look at Express's middlware resources to find others that may suit your app needs](https://expressjs.com/en/resources/middleware.html).
