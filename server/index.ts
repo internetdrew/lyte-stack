@@ -19,11 +19,7 @@ export const appRouter = router({
 
 const app = express();
 
-app.use(
-  cors({
-    origin: process.env.VERCEL_URL || "http://localhost:5173",
-  }),
-);
+app.use(cors());
 app.use(express.json());
 
 app.use(
