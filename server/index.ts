@@ -5,6 +5,8 @@ import { publicProcedure, router, createContext } from "./trpc";
 import { z } from "zod";
 import dotenv from "dotenv";
 import path from "path";
+import compression from "compression";
+import helmet from "helmet";
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
@@ -17,14 +19,16 @@ export const appRouter = router({
     }),
 });
 
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
+};
+
 const app = express();
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  }),
-);
+app.use(compression());
+app.use(helmet());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use(
