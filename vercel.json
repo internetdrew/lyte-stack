@@ -12,7 +12,7 @@
     }
   ],
   "rewrites": [
-    { "source": "/trpc/:path*", "destination": "/server/index.ts" },
+    { "source": "/trpc/(.*)", "destination": "/api" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
