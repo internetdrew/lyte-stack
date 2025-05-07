@@ -11,6 +11,8 @@
       "config": { "distDir": "dist" }
     }
   ],
-  "rewrites": [{ "source": "/trpc/:path*", "destination": "/server/index.ts" }],
-  "routes": [{ "src": "/(.*)", "dest": "/index.html" }]
+  "rewrites": [
+    { "source": "/trpc/:path*", "destination": "/server/index.ts" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
 }
